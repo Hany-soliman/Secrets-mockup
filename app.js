@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(session({
-  secret: "Our Litle Secret.",
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false
 }));
@@ -72,7 +72,7 @@ app.get("/secrets", function(req, res) {
   }
 });
 
-app.get("/logout", function(req, res){
+app.get("/logout", function(req, res) {
   req.logout();
   res.redirect("/");
 });
